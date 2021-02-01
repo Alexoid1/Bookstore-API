@@ -20,6 +20,23 @@ module Api
                 end    
             end
 
+            def destroy
+                book = Book.find(params[:id]);
+                book.destroy
+                render json: {status: 'Great', message:'book deleted', data:book},status: :ok
+            end
+            
+            def update
+                book = Book.find(params[:id]);
+
+                if book.update_attributes(book_params)
+                render json: {status: 'Great', message:'updated book', data:book},status: :ok
+                else
+                render json: {status: 'Error', message:'book not updated', data:book.errors},status: :unprocessable_entity
+                end 
+
+            end    
+
             private
 
             def book_params
