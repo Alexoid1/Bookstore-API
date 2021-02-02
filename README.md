@@ -8,6 +8,7 @@
 
 - Ruby
 - Ruby on Rails
+- PostgreSQL
 
 
 ### Prerequisites
